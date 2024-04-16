@@ -55,3 +55,25 @@ document.querySelector("#skip").onclick = function() {
     }
     console.log("Skip Ahead", video.currentTime);
 };
+document.querySelector("#mute").onclick = function() {
+    video.muted = !video.muted;
+    var muteButton = document.getElementById("mute");
+    if (video.muted) {
+        muteButton.textContent = "Unmute";
+    } else {
+        muteButton.textContent = "Mute";
+    }
+};
+document.querySelector("#slider").oninput = function(event) {
+    var volumeValue = event.target.value;
+    video.volume = volumeValue / 100;
+    var volumeSpan = document.getElementById("volume");
+    volumeSpan.textContent = volumeValue + "%";
+};
+document.querySelector("#vintage").onclick = function() {
+    video.classList.add("oldSchool");
+};
+
+document.querySelector("#orig").onclick = function() {
+    video.classList.remove("oldSchool");
+};
